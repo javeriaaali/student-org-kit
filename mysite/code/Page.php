@@ -1,28 +1,28 @@
 <?php
 class Page extends SiteTree {
 
-	public static $db = array(
+	private static $db = array(
 		
 	);
 
-	public static $has_one = array(
+	private static $has_one = array(
 		"BackgroundImage" => "Image"
 	);
 
 
-	public static $many_many = array (
+	private static $many_many = array (
 		"SidebarItems" => "SidebarItem"
 	);
 
-    public static $many_many_extraFields=array(
+    private static $many_many_extraFields=array(
         'SidebarItems'=>array(
             'SortOrder'=>'Int'
         )
     );
 
-    public static $plural_name = "Pages";
+    private static $plural_name = "Pages";
 
-	public static $defaults = array (
+	private static $defaults = array (
 
 
 		"Content" =>
@@ -87,7 +87,7 @@ class Page_Controller extends ContentController {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array (
+	private static $allowed_actions = array (
 	);
 
 	public function init() {
@@ -114,7 +114,7 @@ class Page_Controller extends ContentController {
 		return $ret;
 	} */
 	
-	public static function StaffSpotlightHandler($arguments, $content){
+	public function StaffSpotlightHandler($arguments, $content){
 		//example: [spotlight]Faces behind the scenes focuses on a person in the Division every month.[/spotlight]
 		
 		$blogHolder = DataObject::get_by_id('BlogHolder', 133);
@@ -143,7 +143,7 @@ class Page_Controller extends ContentController {
 		
 		
 	}
-	public static function BlogFeedHandler($arguments){
+	public function BlogFeedHandler($arguments){
 		//example: [blogfeed page="news" tags="assessment"]Assessment News[/blogfeed]
 		
 		if (empty($arguments['page'])) {
